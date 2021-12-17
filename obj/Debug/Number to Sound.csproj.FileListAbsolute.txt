@@ -1,0 +1,30 @@
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Number to Sound.exe.config
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Number to Sound.exe
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Number to Sound.pdb
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number_to_Sound.Form1.resources
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number_to_Sound.Properties.Resources.resources
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.csproj.GenerateResource.cache
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.exe
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.pdb
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Interop.WMPLib.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Interop.WMPLib.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.csproj.ResolveComReference.cache
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.Asio.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.Core.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.Midi.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.Wasapi.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.WinForms.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.WinMM.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\System.Security.AccessControl.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\NAudio.xml
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\System.Security.AccessControl.xml
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\User\Desktop\BELTEI\Y2S1\C#\Number to Sound\obj\Debug\Number to Sound.csproj.CopyComplete
