@@ -141,6 +141,62 @@ namespace Number_to_Sound
             }
         }
 
+        private bool HandleHundred(ref int index, string max)
+        {
+            bool add_sound = false;
+
+            if (numToRead > int.Parse(max))
+            {
+                if (numStr[index] != '0')
+                {
+                    HandleSingleDigit(numStr[index]);
+                    FilesToPlay.Add(@"C:\Users\User\Desktop\hundred_Cut.mp3");
+
+                    if (numStr[index + 1] != '0' || numStr[index + 2] != '0')
+                        FilesToPlay.Add(@"C:\Users\User\Desktop\and_Cut.mp3");
+
+                    add_sound = true;
+                }
+                ++index;
+            }
+
+            if (numToRead > int.Parse(max = '1' + max.Substring(1)))
+            {
+                if (numStr[index] != '0' && numStr[index] > '1')
+                {
+                    HandleDoubleDigit(numStr[index]);
+                    add_sound = true;
+                }
+                ++index;
+            }
+            else if (numToRead > int.Parse(max = max.Remove(0, 1)))
+            {
+                if (numStr[index] != '0' && numStr[index] == '1')
+                {
+                    HandleTens(numStr.Substring(index, 2));
+                    add_sound = true;
+                }
+                ++index;
+            }
+
+            if (max.Length != 1)
+                max = max.Remove(0, 1);
+            else
+                max = "0";
+
+            if (numToRead >= int.Parse(max))
+            {
+                if (numStr[index] != '0')
+                {
+                    HandleSingleDigit(numStr[index]);
+                    add_sound = true;
+                }
+                ++index;
+            }
+
+            return add_sound;
+        }
+
         private void readButton_Click(object sender, EventArgs e)
         {
             /*
@@ -164,55 +220,20 @@ namespace Number_to_Sound
             if (int.TryParse(numberTextBox.Text, out numToRead))
             {
                 numStr = numberTextBox.Text;
+
+                if (numToRead > 999999)
+                {
+                    if (HandleHundred(ref index, "99999999"))
+                        FilesToPlay.Add(@"C:\Users\User\Desktop\million_Cut.mp3");
+                }
                 
                 if (numToRead > 999)
                 {
-                    if (numStr[index] != '0')
-                    {
-                        HandleSingleDigit(numStr[index]);
+                    if (HandleHundred(ref index, "99999"))
                         FilesToPlay.Add(@"C:\Users\User\Desktop\thousand_Cut.mp3");
-                    }
-                    ++index;
                 }
 
-                if (numToRead > 99)
-                {
-                    if (numStr[index] != '0')
-                    {
-                        HandleSingleDigit(numStr[index]);
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\hundred_Cut.mp3");
-
-                        if (numStr[index + 1] != '0' || numStr[index + 2] != '0')
-                            FilesToPlay.Add(@"C:\Users\User\Desktop\and_Cut.mp3");
-                    }
-                    ++index;
-                }
-
-                if (numToRead > 19)
-                {
-                    if (numStr[index] != '0' && numStr[index] > '1') 
-                    {
-                        HandleDoubleDigit(numStr[index]);
-                    }
-                }
-
-                if (numToRead > 9)
-                {
-                    if (numStr[index] != '0' && numStr[index] == '1')
-                    {
-                        HandleTens(numStr.Substring(index, 2));
-                    }
-                }
-                ++index;
-
-                if (numToRead >= 0)
-                {
-                    if (numStr[index] != '0')
-                    {
-                        HandleSingleDigit(numStr[index]);
-                    }
-                    ++index;
-                }
+                HandleHundred(ref index, "99");
             }
             else
                 MessageBox.Show("Please enter a number!");
