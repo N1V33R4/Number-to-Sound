@@ -148,6 +148,7 @@ namespace Number_to_Sound
         private bool HandleHundred(ref int index, string max)
         {
             bool add_sound = false;
+            bool is_tens = false;
 
             if (numToRead > decimal.Parse(max))
             {
@@ -164,9 +165,9 @@ namespace Number_to_Sound
                 ++index;
             }
 
-            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)))
+            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)) && (numStr[index] > '1' || numStr[index] == '0'))
             {
-                if (numStr[index] != '0' && numStr[index] > '1')
+                if (numStr[index] != '0')
                 {
                     HandleDoubleDigit(numStr[index]);
                     add_sound = true;
@@ -179,6 +180,7 @@ namespace Number_to_Sound
                 {
                     HandleTens(numStr.Substring(index, 2));
                     add_sound = true;
+                    is_tens = true;
                 }
                 ++index;
             }
@@ -190,7 +192,7 @@ namespace Number_to_Sound
 
             if (numToRead >= decimal.Parse(max))
             {
-                if (numStr[index] != '0')
+                if (numStr[index] != '0' && !is_tens)
                 {
                     HandleSingleDigit(numStr[index]);
                     add_sound = true;
@@ -266,12 +268,12 @@ namespace Number_to_Sound
                 int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.5);
                 await Task.Delay(delay);
 
+                // no delay for last item 
                 if (index == numStr.Length - 1)
                     await Task.Delay(audio.TotalTime);
 
                 if (stop)
                     break;
-
                 ClearPlayer();
             }
 
