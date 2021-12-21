@@ -33,6 +33,7 @@ namespace Number_to_Sound
             this.numberTextBox = new System.Windows.Forms.TextBox();
             this.readButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // instructionLabel
@@ -54,9 +55,9 @@ namespace Number_to_Sound
             // 
             // readButton
             // 
-            this.readButton.Location = new System.Drawing.Point(151, 139);
+            this.readButton.Location = new System.Drawing.Point(168, 139);
             this.readButton.Name = "readButton";
-            this.readButton.Size = new System.Drawing.Size(83, 32);
+            this.readButton.Size = new System.Drawing.Size(83, 64);
             this.readButton.TabIndex = 2;
             this.readButton.Text = "Read";
             this.readButton.UseVisualStyleBackColor = true;
@@ -65,13 +66,24 @@ namespace Number_to_Sound
             // exitButton
             // 
             this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exitButton.Location = new System.Drawing.Point(257, 139);
+            this.exitButton.Location = new System.Drawing.Point(252, 171);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(83, 32);
             this.exitButton.TabIndex = 3;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // stopButton
+            // 
+            this.stopButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.stopButton.Location = new System.Drawing.Point(252, 139);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(83, 32);
+            this.stopButton.TabIndex = 4;
+            this.stopButton.Text = "Stop";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // Form1
             // 
@@ -80,6 +92,7 @@ namespace Number_to_Sound
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.exitButton;
             this.ClientSize = new System.Drawing.Size(489, 256);
+            this.Controls.Add(this.stopButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.readButton);
             this.Controls.Add(this.numberTextBox);
@@ -97,6 +110,7 @@ namespace Number_to_Sound
         private System.Windows.Forms.TextBox numberTextBox;
         private System.Windows.Forms.Button readButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button stopButton;
     }
 }
 

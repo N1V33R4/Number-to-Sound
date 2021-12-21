@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
 
 namespace Number_to_Sound
 {
     public partial class Form1 : Form
     {
-        private int numToRead;
+        private decimal numToRead;
         private string numStr;
 
         private List<string> FilesToPlay = new List<string>();
+        bool stop = false;
 
         private AudioFileReader audio;
         private IWavePlayer player;
@@ -33,6 +33,7 @@ namespace Number_to_Sound
             this.Close();
         }
 
+        // handle 0-9
         private void HandleSingleDigit(char digit)
         {
             switch (digit)
@@ -70,6 +71,7 @@ namespace Number_to_Sound
             }
         }
 
+        // handle 10-19
         private void HandleTens(string dblDigit)
         {
             switch (dblDigit)
@@ -107,6 +109,7 @@ namespace Number_to_Sound
             }
         }
 
+        // handle 20-99
         private void HandleDoubleDigit(char digit)
         {
             switch (digit)
@@ -141,11 +144,12 @@ namespace Number_to_Sound
             }
         }
 
+        // handle 100-999
         private bool HandleHundred(ref int index, string max)
         {
             bool add_sound = false;
 
-            if (numToRead > int.Parse(max))
+            if (numToRead > decimal.Parse(max))
             {
                 if (numStr[index] != '0')
                 {
@@ -160,7 +164,7 @@ namespace Number_to_Sound
                 ++index;
             }
 
-            if (numToRead > int.Parse(max = '1' + max.Substring(1)))
+            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)))
             {
                 if (numStr[index] != '0' && numStr[index] > '1')
                 {
@@ -169,7 +173,7 @@ namespace Number_to_Sound
                 }
                 ++index;
             }
-            else if (numToRead > int.Parse(max = max.Remove(0, 1)))
+            else if (numToRead > decimal.Parse(max = max.Remove(0, 1)))
             {
                 if (numStr[index] != '0' && numStr[index] == '1')
                 {
@@ -184,12 +188,16 @@ namespace Number_to_Sound
             else
                 max = "0";
 
-            if (numToRead >= int.Parse(max))
+            if (numToRead >= decimal.Parse(max))
             {
                 if (numStr[index] != '0')
                 {
                     HandleSingleDigit(numStr[index]);
                     add_sound = true;
+                }
+                else if (numStr.Length == 1)
+                {
+                    HandleSingleDigit(numStr[index]);
                 }
                 ++index;
             }
@@ -197,7 +205,8 @@ namespace Number_to_Sound
             return add_sound;
         }
 
-        private void readButton_Click(object sender, EventArgs e)
+        // async so that it lets us stop 
+        private async void readButton_Click(object sender, EventArgs e)
         {
             /*
             SpeechSynthesizer speaker = new SpeechSynthesizer
@@ -208,20 +217,26 @@ namespace Number_to_Sound
             speaker.Speak(numberTextBox.Text);
             */
 
-            /*
-            FilesToPlay.Add(@"C:\Users\User\Desktop\1_Cut.mp3");
-            FilesToPlay.Add(@"C:\Users\User\Desktop\hundred_Cut.mp3");
-            FilesToPlay.Add(@"C:\Users\User\Desktop\and_Cut.mp3");
-            FilesToPlay.Add(@"C:\Users\User\Desktop\2_Cut.mp3");
-            */
-
+            stop = false;
             int index = 0;
                           
-            if (int.TryParse(numberTextBox.Text, out numToRead))
+            if (decimal.TryParse(numberTextBox.Text, out numToRead))
             {
                 numStr = numberTextBox.Text;
 
-                if (numToRead > 999999)
+                if (numToRead > 999999999999) // nine hundred billion
+                {
+                    if (HandleHundred(ref index, "99999999999999"))
+                        FilesToPlay.Add(@"C:\Users\User\Desktop\trillion_Cut.mp3");
+                }
+
+                if (numToRead > 999999999) // nine hundred million
+                {
+                    if (HandleHundred(ref index, "99999999999"))
+                        FilesToPlay.Add(@"C:\Users\User\Desktop\billion_Cut.mp3");
+                }
+
+                if (numToRead > 999999) // nine hundred thousand 
                 {
                     if (HandleHundred(ref index, "99999999"))
                         FilesToPlay.Add(@"C:\Users\User\Desktop\million_Cut.mp3");
@@ -246,17 +261,40 @@ namespace Number_to_Sound
                 player = new WaveOut(WaveCallbackInfo.FunctionCallback());
                 player.Init(audio);
                 player.Play();
-                System.Threading.Thread.Sleep(audio.TotalTime);
+                
+                // reduces interval between .mp3 files 
+                int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.5);
+                await Task.Delay(delay);
 
-                player.Stop();
+                if (index == numStr.Length - 1)
+                    await Task.Delay(audio.TotalTime);
+
+                if (stop)
+                    break;
+
+                ClearPlayer();
+            }
+
+            // Reset list 
+            FilesToPlay.Clear();
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            stop = true;
+            player?.Stop();
+            ClearPlayer();
+        }
+
+        private void ClearPlayer()
+        {
+            if (player != null && audio != null)
+            {
                 player.Dispose();
                 audio.Dispose();
                 player = null;
                 audio = null;
             }
-
-            // Reset list 
-            FilesToPlay.Clear();
         }
     }
 }
