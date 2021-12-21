@@ -165,7 +165,7 @@ namespace Number_to_Sound
                 ++index;
             }
 
-            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)) && (numStr[index] > '1' || numStr[index] == '0'))
+            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)) && numStr[index] > '1')
             {
                 if (numStr[index] != '0')
                 {
@@ -174,7 +174,7 @@ namespace Number_to_Sound
                 }
                 ++index;
             }
-            else if (numToRead > decimal.Parse(max = max.Remove(0, 1)))
+            else if (numToRead > decimal.Parse(max = max.Remove(0, 1))) // handle 11-19
             {
                 if (numStr[index] != '0' && numStr[index] == '1')
                 {
@@ -185,6 +185,7 @@ namespace Number_to_Sound
                 ++index;
             }
 
+            // prevent empty string 
             if (max.Length != 1)
                 max = max.Remove(0, 1);
             else
@@ -197,7 +198,7 @@ namespace Number_to_Sound
                     HandleSingleDigit(numStr[index]);
                     add_sound = true;
                 }
-                else if (numStr.Length == 1)
+                else if (numStr.Length == 1) // handle 0 
                 {
                     HandleSingleDigit(numStr[index]);
                 }
