@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Speech.Synthesis;
 using NAudio.Wave;
 
 namespace Number_to_Sound
@@ -211,15 +210,6 @@ namespace Number_to_Sound
         // async so that it lets us stop 
         private async void readButton_Click(object sender, EventArgs e)
         {
-            /*
-            SpeechSynthesizer speaker = new SpeechSynthesizer
-            {
-                Rate = 1,
-                Volume = 100
-            };
-            speaker.Speak(numberTextBox.Text);
-            */
-
             stop = false;
             int index = 0;
                           
@@ -260,7 +250,7 @@ namespace Number_to_Sound
                     if (robotVoiceRadio.Checked)
                         faudio = "Robot Voice" + file;
                     else if (satyaVoiceRadio.Checked)
-                        faudio = "Satya's Voice" + file;
+                        faudio = "Satya Voice" + file;
 
                     audio = new AudioFileReader(faudio);
                     audio.Volume = 1;
@@ -269,12 +259,13 @@ namespace Number_to_Sound
                     player.Play();
 
                     // reduces interval between .mp3 files 
-                    int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.5);
-                    await Task.Delay(delay);
-
-                    // full duration for last item 
+                    int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.3);
+                    
                     if (index == numStr.Length - 1)
+                        // full duration for last item 
                         await Task.Delay(audio.TotalTime);
+                    else
+                        await Task.Delay(delay);
 
                     if (stop)
                         break;
