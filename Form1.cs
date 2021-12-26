@@ -39,34 +39,34 @@ namespace Number_to_Sound
             switch (digit)
             {
                 case '1':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\1_Cut.mp3");
+                    FilesToPlay.Add(@"\1.mp3");
                     break;
                 case '2':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\2_Cut.mp3");
+                    FilesToPlay.Add(@"\2.mp3");
                     break;
                 case '3':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\3_Cut.mp3");
+                    FilesToPlay.Add(@"\3.mp3");
                     break;
                 case '4':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\4_Cut.mp3");
+                    FilesToPlay.Add(@"\4.mp3");
                     break;
                 case '5':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\5_Cut.mp3");
+                    FilesToPlay.Add(@"\5.mp3");
                     break;
                 case '6':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\6_Cut.mp3");
+                    FilesToPlay.Add(@"\6.mp3");
                     break;
                 case '7':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\7_Cut.mp3");
+                    FilesToPlay.Add(@"\7.mp3");
                     break;
                 case '8':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\8_Cut.mp3");
+                    FilesToPlay.Add(@"\8.mp3");
                     break;
                 case '9':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\9_Cut.mp3");
+                    FilesToPlay.Add(@"\9.mp3");
                     break;
                 case '0':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\0_Cut.mp3");
+                    FilesToPlay.Add(@"\0.mp3");
                     break;
             }
         }
@@ -77,34 +77,34 @@ namespace Number_to_Sound
             switch (dblDigit)
             {
                 case "11":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\11_Cut.mp3");
+                    FilesToPlay.Add(@"\11.mp3");
                     break;
                 case "12":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\12_Cut.mp3");
+                    FilesToPlay.Add(@"\12.mp3");
                     break;
                 case "13":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\13_Cut.mp3");
+                    FilesToPlay.Add(@"\13.mp3");
                     break;
                 case "14":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\14_Cut.mp3");
+                    FilesToPlay.Add(@"\14.mp3");
                     break;
                 case "15":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\15_Cut.mp3");
+                    FilesToPlay.Add(@"\15.mp3");
                     break;
                 case "16":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\16_Cut.mp3");
+                    FilesToPlay.Add(@"\16.mp3");
                     break;
                 case "17":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\17_Cut.mp3");
+                    FilesToPlay.Add(@"\17.mp3");
                     break;
                 case "18":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\18_Cut.mp3");
+                    FilesToPlay.Add(@"\18.mp3");
                     break;
                 case "19":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\19_Cut.mp3");
+                    FilesToPlay.Add(@"\19.mp3");
                     break;
                 case "10":
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\10_Cut.mp3");
+                    FilesToPlay.Add(@"\10.mp3");
                     break;
             }
         }
@@ -115,31 +115,31 @@ namespace Number_to_Sound
             switch (digit)
             {
                 case '1':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\10_Cut.mp3");
+                    FilesToPlay.Add(@"\10.mp3");
                     break;
                 case '2':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\20_Cut.mp3");
+                    FilesToPlay.Add(@"\20.mp3");
                     break;
                 case '3':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\30_Cut.mp3");
+                    FilesToPlay.Add(@"\30.mp3");
                     break;
                 case '4':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\40_Cut.mp3");
+                    FilesToPlay.Add(@"\40.mp3");
                     break;
                 case '5':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\50_Cut.mp3");
+                    FilesToPlay.Add(@"\50.mp3");
                     break;
                 case '6':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\60_Cut.mp3");
+                    FilesToPlay.Add(@"\60.mp3");
                     break;
                 case '7':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\70_Cut.mp3");
+                    FilesToPlay.Add(@"\70.mp3");
                     break;
                 case '8':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\80_Cut.mp3");
+                    FilesToPlay.Add(@"\80.mp3");
                     break;
                 case '9':
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\90_Cut.mp3");
+                    FilesToPlay.Add(@"\90.mp3");
                     break;
             }
         }
@@ -155,10 +155,10 @@ namespace Number_to_Sound
                 if (numStr[index] != '0')
                 {
                     HandleSingleDigit(numStr[index]);
-                    FilesToPlay.Add(@"C:\Users\User\Desktop\hundred_Cut.mp3");
+                    FilesToPlay.Add(@"\hundred.mp3");
 
                     if (numStr[index + 1] != '0' || numStr[index + 2] != '0')
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\and_Cut.mp3");
+                        FilesToPlay.Add(@"\and.mp3");
 
                     add_sound = true;
                 }
@@ -230,56 +230,62 @@ namespace Number_to_Sound
                 if (numToRead > 999999999999) // nine hundred billion
                 {
                     if (HandleHundred(ref index, "99999999999999"))
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\trillion_Cut.mp3");
+                        FilesToPlay.Add(@"\trillion.mp3");
                 }
 
                 if (numToRead > 999999999) // nine hundred million
                 {
                     if (HandleHundred(ref index, "99999999999"))
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\billion_Cut.mp3");
+                        FilesToPlay.Add(@"\billion.mp3");
                 }
 
                 if (numToRead > 999999) // nine hundred thousand 
                 {
                     if (HandleHundred(ref index, "99999999"))
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\million_Cut.mp3");
+                        FilesToPlay.Add(@"\million.mp3");
                 }
                 
                 if (numToRead > 999)
                 {
                     if (HandleHundred(ref index, "99999"))
-                        FilesToPlay.Add(@"C:\Users\User\Desktop\thousand_Cut.mp3");
+                        FilesToPlay.Add(@"\thousand.mp3");
                 }
 
                 HandleHundred(ref index, "99");
+
+                // Play .mp3 files 
+                foreach (string file in FilesToPlay)
+                {
+                    string faudio = "";
+                    if (robotVoiceRadio.Checked)
+                        faudio = "Robot Voice" + file;
+                    else if (satyaVoiceRadio.Checked)
+                        faudio = "Satya's Voice" + file;
+
+                    audio = new AudioFileReader(faudio);
+                    audio.Volume = 1;
+                    player = new WaveOut(WaveCallbackInfo.FunctionCallback());
+                    player.Init(audio);
+                    player.Play();
+
+                    // reduces interval between .mp3 files 
+                    int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.5);
+                    await Task.Delay(delay);
+
+                    // full duration for last item 
+                    if (index == numStr.Length - 1)
+                        await Task.Delay(audio.TotalTime);
+
+                    if (stop)
+                        break;
+                    ClearPlayer();
+                }
+
+                // Reset list 
+                FilesToPlay.Clear();
             }
             else
                 MessageBox.Show("Please enter a number!");
-
-            // Play .mp3 files 
-            foreach (var file in FilesToPlay)
-            {
-                audio = new AudioFileReader(file);
-                audio.Volume = 1;
-                player = new WaveOut(WaveCallbackInfo.FunctionCallback());
-                player.Init(audio);
-                player.Play();
-                
-                // reduces interval between .mp3 files 
-                int delay = (int)(audio.TotalTime.TotalMilliseconds / 1.5);
-                await Task.Delay(delay);
-
-                // no delay for last item 
-                if (index == numStr.Length - 1)
-                    await Task.Delay(audio.TotalTime);
-
-                if (stop)
-                    break;
-                ClearPlayer();
-            }
-
-            // Reset list 
-            FilesToPlay.Clear();
         }
 
         private void stopButton_Click(object sender, EventArgs e)
