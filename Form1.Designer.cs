@@ -34,9 +34,8 @@ namespace Number_to_Sound
             this.readButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
-            this.robotVoiceRadio = new System.Windows.Forms.RadioButton();
-            this.satyaVoiceRadio = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.speakerGif = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.speakerGif)).BeginInit();
             this.SuspendLayout();
             // 
             // instructionLabel
@@ -53,12 +52,12 @@ namespace Number_to_Sound
             this.numberTextBox.Location = new System.Drawing.Point(223, 51);
             this.numberTextBox.Multiline = true;
             this.numberTextBox.Name = "numberTextBox";
-            this.numberTextBox.Size = new System.Drawing.Size(106, 22);
+            this.numberTextBox.Size = new System.Drawing.Size(115, 22);
             this.numberTextBox.TabIndex = 1;
             // 
             // readButton
             // 
-            this.readButton.Location = new System.Drawing.Point(148, 146);
+            this.readButton.Location = new System.Drawing.Point(148, 112);
             this.readButton.Name = "readButton";
             this.readButton.Size = new System.Drawing.Size(83, 64);
             this.readButton.TabIndex = 2;
@@ -69,7 +68,7 @@ namespace Number_to_Sound
             // exitButton
             // 
             this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exitButton.Location = new System.Drawing.Point(232, 178);
+            this.exitButton.Location = new System.Drawing.Point(232, 144);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(83, 32);
             this.exitButton.TabIndex = 3;
@@ -80,7 +79,7 @@ namespace Number_to_Sound
             // stopButton
             // 
             this.stopButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.stopButton.Location = new System.Drawing.Point(232, 146);
+            this.stopButton.Location = new System.Drawing.Point(232, 112);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(83, 32);
             this.stopButton.TabIndex = 4;
@@ -88,47 +87,26 @@ namespace Number_to_Sound
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
-            // robotVoiceRadio
+            // speakerGif
             // 
-            this.robotVoiceRadio.AutoSize = true;
-            this.robotVoiceRadio.Checked = true;
-            this.robotVoiceRadio.Location = new System.Drawing.Point(162, 112);
-            this.robotVoiceRadio.Name = "robotVoiceRadio";
-            this.robotVoiceRadio.Size = new System.Drawing.Size(67, 21);
-            this.robotVoiceRadio.TabIndex = 5;
-            this.robotVoiceRadio.TabStop = true;
-            this.robotVoiceRadio.Text = "Robot";
-            this.robotVoiceRadio.UseVisualStyleBackColor = true;
-            // 
-            // satyaVoiceRadio
-            // 
-            this.satyaVoiceRadio.AutoSize = true;
-            this.satyaVoiceRadio.Location = new System.Drawing.Point(235, 112);
-            this.satyaVoiceRadio.Name = "satyaVoiceRadio";
-            this.satyaVoiceRadio.Size = new System.Drawing.Size(65, 21);
-            this.satyaVoiceRadio.TabIndex = 6;
-            this.satyaVoiceRadio.Text = "Satya";
-            this.satyaVoiceRadio.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(198, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Voices:";
+            this.speakerGif.Image = global::Number_to_Sound.Properties.Resources.Speaker_All_Assets___Download_Free_3D_Illustrations__Icons__Lottie_Animations;
+            this.speakerGif.Location = new System.Drawing.Point(12, 112);
+            this.speakerGif.Name = "speakerGif";
+            this.speakerGif.Size = new System.Drawing.Size(103, 101);
+            this.speakerGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.speakerGif.TabIndex = 5;
+            this.speakerGif.TabStop = false;
+            this.speakerGif.Visible = false;
             // 
             // Form1
             // 
             this.AcceptButton = this.readButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.exitButton;
-            this.ClientSize = new System.Drawing.Size(460, 255);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.satyaVoiceRadio);
-            this.Controls.Add(this.robotVoiceRadio);
+            this.ClientSize = new System.Drawing.Size(460, 225);
+            this.Controls.Add(this.speakerGif);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.readButton);
@@ -136,6 +114,7 @@ namespace Number_to_Sound
             this.Controls.Add(this.instructionLabel);
             this.Name = "Form1";
             this.Text = "Number to Sound ";
+            ((System.ComponentModel.ISupportInitialize)(this.speakerGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,9 +127,7 @@ namespace Number_to_Sound
         private System.Windows.Forms.Button readButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.RadioButton robotVoiceRadio;
-        private System.Windows.Forms.RadioButton satyaVoiceRadio;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox speakerGif;
     }
 }
 

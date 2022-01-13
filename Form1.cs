@@ -113,9 +113,6 @@ namespace Number_to_Sound
         {
             switch (digit)
             {
-                case '1':
-                    FilesToPlay.Add(@"\10.mp3");
-                    break;
                 case '2':
                     FilesToPlay.Add(@"\20.mp3");
                     break;
@@ -212,6 +209,8 @@ namespace Number_to_Sound
         {
             stop = false;
             int index = 0;
+
+            speakerGif.Visible = true;
                           
             if (decimal.TryParse(numberTextBox.Text, out numToRead))
             {
@@ -243,16 +242,11 @@ namespace Number_to_Sound
 
                 HandleHundred(ref index, "99");
 
+                string faudio = "Satya Voice";
                 // Play .mp3 files 
                 foreach (string file in FilesToPlay)
                 {
-                    string faudio = "";
-                    if (robotVoiceRadio.Checked)
-                        faudio = "Robot Voice" + file;
-                    else if (satyaVoiceRadio.Checked)
-                        faudio = "Satya Voice" + file;
-
-                    audio = new AudioFileReader(faudio);
+                    audio = new AudioFileReader(faudio + file);
                     audio.Volume = 1;
                     player = new WaveOut(WaveCallbackInfo.FunctionCallback());
                     player.Init(audio);
@@ -274,6 +268,7 @@ namespace Number_to_Sound
 
                 // Reset list 
                 FilesToPlay.Clear();
+                speakerGif.Visible = false;
             }
             else
                 MessageBox.Show("Please enter a number!");
@@ -284,6 +279,7 @@ namespace Number_to_Sound
             stop = true;
             player?.Stop();
             ClearPlayer();
+            speakerGif.Visible = false;
         }
 
         private void ClearPlayer()
