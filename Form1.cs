@@ -146,7 +146,7 @@ namespace Number_to_Sound
             bool add_sound = false;
             bool is_tens = false;
 
-            if (numToRead > decimal.Parse(max))
+            if (numToRead >= decimal.Parse(max))
             {
                 if (numStr[index] != '0')
                 {
@@ -161,8 +161,8 @@ namespace Number_to_Sound
                 ++index;
             }
 
-            if (numToRead > decimal.Parse(max = '1' + max.Substring(1)) && numStr[index] > '1')
-            {
+            if (numToRead >= decimal.Parse(max = '2' + max.Substring(2)) && numStr[index] > '1')
+            { 
                 if (numStr[index] != '0')
                 {
                     HandleDoubleDigit(numStr[index]);
@@ -170,7 +170,7 @@ namespace Number_to_Sound
                 }
                 ++index;
             }
-            else if (numToRead > decimal.Parse(max = max.Remove(0, 1))) // handle 11-19
+            else if (numToRead >= decimal.Parse(max = '1' + max.Substring(1))) // handle 11-19
             {
                 if (numStr[index] != '0' && numStr[index] == '1')
                 {
@@ -180,26 +180,17 @@ namespace Number_to_Sound
                 }
                 ++index;
             }
-
-            // prevent empty string 
-            if (max.Length != 1)
-                max = max.Remove(0, 1);
-            else
-                max = "0";
-
-            if (numToRead >= decimal.Parse(max))
+            
+            if (numStr[index] != '0' && !is_tens)
             {
-                if (numStr[index] != '0' && !is_tens)
-                {
-                    HandleSingleDigit(numStr[index]);
-                    add_sound = true;
-                }
-                else if (numStr.Length == 1) // handle 0 
-                {
-                    HandleSingleDigit(numStr[index]);
-                }
-                ++index;
+                HandleSingleDigit(numStr[index]);
+                add_sound = true;
             }
+            else if (numStr.Length == 1) // handle 0 
+            {
+                HandleSingleDigit(numStr[index]);
+            }
+            ++index;
 
             return add_sound;
         }
@@ -216,37 +207,37 @@ namespace Number_to_Sound
             {
                 numStr = numberTextBox.Text;
 
-                if (numToRead > 999999999999) // nine hundred billion
+                if (numToRead >= 1000000000000) // one trillion
                 {
-                    if (HandleHundred(ref index, "99999999999999"))
+                    if (HandleHundred(ref index, "100000000000000")) // 100 trillion 
                         FilesToPlay.Add(@"\trillion.mp3");
                 }
 
-                if (numToRead > 999999999) // nine hundred million
+                if (numToRead >= 1000000000) // one billion
                 {
-                    if (HandleHundred(ref index, "99999999999"))
+                    if (HandleHundred(ref index, "100000000000")) // 100 billion
                         FilesToPlay.Add(@"\billion.mp3");
                 }
 
-                if (numToRead > 999999) // nine hundred thousand 
+                if (numToRead >= 1000000) // one million
                 {
-                    if (HandleHundred(ref index, "99999999"))
+                    if (HandleHundred(ref index, "100000000")) // 100 million
                         FilesToPlay.Add(@"\million.mp3");
                 }
                 
-                if (numToRead > 999)
+                if (numToRead >= 1000)
                 {
-                    if (HandleHundred(ref index, "99999"))
+                    if (HandleHundred(ref index, "100000")) // 100 thousand 
                         FilesToPlay.Add(@"\thousand.mp3");
                 }
 
-                HandleHundred(ref index, "99");
+                HandleHundred(ref index, "100");
 
-                string faudio = "Satya Voice";
+                string fname = "Satya Voice";
                 // Play .mp3 files 
                 foreach (string file in FilesToPlay)
                 {
-                    audio = new AudioFileReader(faudio + file);
+                    audio = new AudioFileReader(fname + file);
                     audio.Volume = 1;
                     player = new WaveOut(WaveCallbackInfo.FunctionCallback());
                     player.Init(audio);
