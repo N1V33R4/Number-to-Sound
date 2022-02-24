@@ -35,6 +35,7 @@ namespace Number_to_Sound
             this.exitButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.speakerGif = new System.Windows.Forms.PictureBox();
+            this.readLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.speakerGif)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,13 +91,21 @@ namespace Number_to_Sound
             // speakerGif
             // 
             this.speakerGif.Image = global::Number_to_Sound.Properties.Resources.Speaker_All_Assets___Download_Free_3D_Illustrations__Icons__Lottie_Animations;
-            this.speakerGif.Location = new System.Drawing.Point(12, 112);
+            this.speakerGif.Location = new System.Drawing.Point(12, 87);
             this.speakerGif.Name = "speakerGif";
             this.speakerGif.Size = new System.Drawing.Size(103, 101);
             this.speakerGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.speakerGif.TabIndex = 5;
             this.speakerGif.TabStop = false;
             this.speakerGif.Visible = false;
+            // 
+            // readLabel
+            // 
+            this.readLabel.Location = new System.Drawing.Point(12, 191);
+            this.readLabel.Name = "readLabel";
+            this.readLabel.Size = new System.Drawing.Size(436, 48);
+            this.readLabel.TabIndex = 6;
+            this.readLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -105,7 +114,8 @@ namespace Number_to_Sound
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.exitButton;
-            this.ClientSize = new System.Drawing.Size(460, 225);
+            this.ClientSize = new System.Drawing.Size(460, 241);
+            this.Controls.Add(this.readLabel);
             this.Controls.Add(this.speakerGif);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.exitButton);
@@ -128,6 +138,7 @@ namespace Number_to_Sound
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.PictureBox speakerGif;
+        private System.Windows.Forms.Label readLabel;
     }
 }
 
